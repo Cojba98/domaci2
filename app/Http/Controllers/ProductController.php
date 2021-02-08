@@ -91,8 +91,9 @@ class ProductController extends BaseController
 
     }
 
-    public function update(Request $request, Product $product){
+    public function update(Request $request, $id){
         $input = $request->all();
+        $product = Product::find($id);
         $validator = Validator::make($input,[
             'name'=>'required',
             'size'=>'required',
@@ -104,13 +105,12 @@ class ProductController extends BaseController
         if($validator->fails()){
             return $this->sendError("Unesite ispravne vrednosti za sve atribute");
         }
-
         $product->name = $input['name'];
         $product->size = $input['size'];
         $product->price = $input['price'];
         $product->producer_id = $input['producer_id'];
         $product->category_id = $input['category_id'];
-
+        $product->save();
 
         return $this->sendResponse(new ResourceProduct($product), "Proizvod uspesno izmenjen");
     }
