@@ -10,36 +10,36 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends BaseController
 {
-    // public function getProducts(){
-    //     return view('addProduct');
-    // }
+    public function getProducts(){
+        return view('addProduct');
+    }
 
-    // public function get(){
-    //     $products = Product::all();
-    //     return $this->sendResponse(ResourceProduct::collection($products), "Proizvodi uspesno pronadjeni!");
-    // }
+    public function get(){
+        $products = Product::all();
+        return $this->sendResponse(ResourceProduct::collection($products), "Proizvodi uspesno pronadjeni!");
+    }
 
-    // public function addProduct(Request $request){
-    //     $product = new Product();
-    //     $product->name = $request->name;
-    //     $product->price = $request->price;
-    //     $product->size = $request->size;
-    //     $product->producer_id = $request->producer_id;
-    //     $product->category_id = $request->category_id;
-    //     $product->save();
-    //     return redirect('products');
-    // }
+    public function addProduct(Request $request){
+        $product = new Product();
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->size = $request->size;
+        $product->producer_id = $request->producer_id;
+        $product->category_id = $request->category_id;
+        $product->save();
+        return redirect('products');
+    }
 
-    // public function getProduct($id){
-    //     $product = Product::find($id);
-    //     return view('product', compact('product'));
-    // }
+    public function getProduct($id){
+        $product = Product::find($id);
+        return view('product', compact('product'));
+    }
 
-    // public function deleteProduct($id){
-    //     $product = Product::find($id);
-    //     $product->delete();
-    //     return redirect('products');
-    // }
+    public function deleteProduct($id){
+        $product = Product::find($id);
+        $product->delete();
+        return redirect('products');
+    }
 
     public function index(){
         $products = Product::all();

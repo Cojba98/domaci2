@@ -11,21 +11,21 @@ use App\Http\Resources\ResourceProduct;
 class ProducerController extends BaseController
 {
     
-    // public function getProducers(){
-    //     $allProducers = Producer::all();
-    //     return $allProducers;
-    // }
+    public function getProducers(){
+        $allProducers = Producer::all();
+        return $allProducers;
+    }
 
-    // public function openAddProducerForm(){
-    //     return view('addProducer');
-    // }
+    public function openAddProducerForm(){
+        return view('addProducer');
+    }
 
-    // public function addProducer(Request $request){
-    //     $producer = new Producer();
-    //     $producer->name = $request->name;
-    //     $producer->save();
-    //     return redirect('/producers');
-    // }
+    public function addProducer(Request $request){
+        $producer = new Producer();
+        $producer->name = $request->name;
+        $producer->save();
+        return redirect('/producers');
+    }
 
     public function show($name){
 

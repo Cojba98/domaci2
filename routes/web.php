@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProducersController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProducerController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,12 +32,12 @@ Route::post('products/{id}', [ProductController::class, 'deleteProduct']);
 Route::get('products/{id}', [ProductController::class, 'getProduct']);
 
 
-Route::get('/producers', [ProducersController::class, 'getProducers']);
+Route::get('/producers', [ProducerController::class, 'getProducers']);
 
-Route::get('/addProducer', [ProducersController::class, 'openAddProducerForm']);
-Route::post('/addProducer', [ProducersController::class, 'addProducer']);
+Route::get('/addProducer', [ProducerController::class, 'openAddProducerForm']);
+Route::post('/addProducer', [ProducerController::class, 'addProducer']);
 
-Route::get('/categories', [CategoriesController::class, 'getCategories']);
+Route::get('/categories', [CategoryController::class, 'getCategories']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
